@@ -1,16 +1,16 @@
 //Define the channels of the analog inputs of the reciever.
 
-int ch1 = 9;
+int ch1 = 0;
 
-int ch2 = 6;
+int ch2 = 0;
 
-int ch3 = 5;
+int ch3 = 1;
 
-int ch4 = 3;
+int ch4 = 0;
 
-int ch5 = 10;
+int ch5 = 1;
 
-int ch6 = 11;
+int ch6 = 1;
 
 //Define the pulsein functions.
 
