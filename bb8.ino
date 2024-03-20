@@ -9,8 +9,8 @@
 #define START 'A'
 #define PAUSE 'P'
 
-#define MOTOR_MAX 255
-#define MOTOR_NORMAL 155
+#define MOTOR_MAX 50
+#define MOTOR_NORMAL 50
 // Motor Pin[] Format: Negative, Positive, PWM
 const int motor_L_pins[] = {7, 8, 9};
 const int motor_R_pins[] = {10, 11, 12};
@@ -77,8 +77,10 @@ void executeCommand(char command)
         break;
 
     case TRIANGLE:
+        digitalWrite(LED, HIGH);
         break;
     case SQUARE:
+        digitalWrite(LED, LOW);
         break;
     case START:
         motors_on = true;
@@ -98,6 +100,7 @@ void executeCommand(char command)
 
 void setup()
 {
+    Serial.begin(9600);
     for (int pin : motor_L_pins)
         pinMode(pin, OUTPUT);
 
@@ -110,7 +113,9 @@ void setup()
 void loop()
 {
     if (Serial.available())
+    {
         char command = Serial.read();
         Serial.println(command);
         executeCommand(command);
+    }
 }
